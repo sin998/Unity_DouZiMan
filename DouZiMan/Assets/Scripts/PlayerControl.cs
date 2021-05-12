@@ -85,7 +85,7 @@ public class PlayerControl : MonoBehaviour
     {
         if (canJump)
         {
-            Debug.Log("可以跳跃！");
+            //Debug.Log("可以跳跃！");
             heroRD2D.AddForce(new Vector2(0, 1) * JumpForce);
             canJump = false;
         }
