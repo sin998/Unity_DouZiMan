@@ -6,8 +6,10 @@ public class BackgroundMotionCompensation : MonoBehaviour
     Transform CamMainTF;
     //主摄像机上一帧的位置
     Vector3 CamMainPrePos;
-    //相机运动量
+    //相机运动量X
     public float fparallax;
+    //相机运动量Y
+    public float fparallay;
     //要运动的背景
     public Transform[] backgroundsTF;
     //每层要运动的系数
@@ -31,14 +33,17 @@ public class BackgroundMotionCompensation : MonoBehaviour
     void Update()
     {
         //相机运动量
-        float fparallaxX = (CamMainPrePos.x - CamMainTF.position.x) * fparallax;
+         float fparallaxX = (CamMainPrePos.x - CamMainTF.position.x) * fparallax;
+         float fparallaxY = (CamMainPrePos.y - CamMainTF.position.y) * fparallay;
         //各层背景运动量：越近的移动的应该越多
         for (int i = 0; i < backgroundsTF.Length; i++)
         {
             //计算各层背景新位置
             float bkNewX = backgroundsTF[i].position.x + fparallaxX * (1 + layerFraction * i);
+            float bkNewY = backgroundsTF[i].position.y + fparallaxY * (1 + layerFraction * i);
             //计算新位置
             Vector3 newPosV3 = new Vector3(bkNewX, backgroundsTF[i].position.y, backgroundsTF[i].position.z);
+            //Vector3 newPosV3 = new Vector3(bkNewX, bkNewY, backgroundsTF[i].position.z);
             //相机平滑移动，用Lerp函数，Unity专门提供了针对于V3的Lerp
             backgroundsTF[i].position = Vector3.Lerp(backgroundsTF[i].position, newPosV3, fSmooth * Time.deltaTime);
         }

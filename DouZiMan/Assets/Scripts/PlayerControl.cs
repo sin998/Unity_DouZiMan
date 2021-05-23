@@ -12,11 +12,11 @@ public class PlayerControl : MonoBehaviour
     //施加的力：移动
     public float moveForce = 100;
     //现在的朝向
-    private bool isFaceRight = true;
+    public bool isFaceRight = true;
     //移动：左右
     private float h = 0.0f;
     //最大速度
-    public float maxSpeed = 5;
+    public float maxSpeed = 20;
     //是否在地面上
     private bool beGrounded = false;
     //Ground的heroTransform
@@ -25,6 +25,8 @@ public class PlayerControl : MonoBehaviour
     public float JumpForce = 500;
     //能否跳跃
     private bool canJump = false;
+    //Hero的动画控制器
+    public Animator playeraimator;
 
     // Start is called before the first frame update
     void Start()
@@ -46,6 +48,10 @@ public class PlayerControl : MonoBehaviour
 
         //获取水平方向的输入：AD/← →
         h = Input.GetAxis("Horizontal");
+
+        //动画:Run
+        playeraimator.SetFloat("Speed", Mathf.Abs(h));
+
         //移动
         move();
 
@@ -55,13 +61,19 @@ public class PlayerControl : MonoBehaviour
         //检测按键
         if (beGrounded)
         {
+            playeraimator.SetBool("IsJump", false);
             canJump = true;
             //Debug.Log("在地上！");
             if (Input.GetButtonDown("Jump"))
             {
                 //Debug.Log("开始跳跃！");
+                //动画:Jump
                 jump();
             }
+        }
+        else
+        {
+            playeraimator.SetBool("IsJump", true);
         }
     }
 
