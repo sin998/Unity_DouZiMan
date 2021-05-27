@@ -20,6 +20,8 @@ public class GunController : MonoBehaviour
     public float flySpeed;
     //玩家控制器脚本
     private PlayerControl playerControl;
+    //动画控制器
+    public Animator playerAnimator;
 
     // Start is called before the first frame update
     void Start()
@@ -39,6 +41,8 @@ public class GunController : MonoBehaviour
         //它的按键映射和对应键盘的键值可以在「Edit」-「Project Setting」-「Input Manager」中设置。
         if (Input.GetButtonDown("Fire1"))
         {
+            //播放动画
+            playerAnimator.SetTrigger("Shooting");
             //判断朝向
             if (playerControl.isFaceRight)
             {
