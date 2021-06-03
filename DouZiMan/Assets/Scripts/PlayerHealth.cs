@@ -14,6 +14,8 @@ public class PlayerHealth : MonoBehaviour
     public SpriteRenderer healthBarRender;
     //玩家动画控制器，死亡、掉落动画。
     public Animator playerAnimatior;
+    //反弹的力的大小
+    public float hurtForce = 20f;				
 
     // Start is called before the first frame update
     void Start()
@@ -28,7 +30,8 @@ public class PlayerHealth : MonoBehaviour
         //碰到敌人
         if (collision.collider.tag == "Enemy")
         {
-            //Debug.Log("碰撞了！");
+            //TODO:反弹
+
             //血>0
             if (health > 0)
             {
@@ -66,6 +69,8 @@ public class PlayerHealth : MonoBehaviour
     {
         health -= damage;
         health = Mathf.Clamp(health, 0, maxHealth);
+        Vector3 hurtVector = transform.position - this.transform.position + Vector3.up * 5f;
+        GetComponent<Rigidbody2D>().AddForce(hurtVector * hurtForce);
     }
 
     //更新血条

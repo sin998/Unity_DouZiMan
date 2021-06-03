@@ -20,11 +20,15 @@ public class RocketController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.collider.tag != "Player")
+        //if(collision.collider.tag != "Player")
+        //{
+        //}
+        Instantiate(ExplosionAnimation, transform.position, Quaternion.Euler(0, 0, Random.Range(0, 360)));
+        if (collision.collider.tag == "Enemy")
         {
-            Instantiate(ExplosionAnimation, transform.position, Quaternion.Euler(0, 0, Random.Range(0, 360)));
-            Destroy(gameObject);
+            collision.gameObject.GetComponent<EnemyController>().Hurt();
         }
+        Destroy(gameObject);
     }
 
     // Update is called once per frame
