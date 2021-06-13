@@ -11,7 +11,7 @@ public class EnemyController : MonoBehaviour
     //FrontCheck的TF
     private Transform frontCheckTF;
     //怪物血量
-    private float health = 2.0f;
+    public float health = 2.0f;
     //怪物最大血量
     private float maxHealth = 2.0f;
     //怪物半血SP
@@ -23,7 +23,7 @@ public class EnemyController : MonoBehaviour
     //伤害量
     private float damageVal = 1.0f;
     //是否死亡
-    private bool isDead;
+    //private bool isDead;
     //100Points动画
     public GameObject PointsUI100;
 
@@ -71,7 +71,7 @@ public class EnemyController : MonoBehaviour
     
     private void Dead()
     {
-        isDead = true;
+       // isDead = true;
         bodySP.sprite = deadSprite;
         //子物体的碰撞全部设置为IsTrigger，即掉到河里
         Collider2D[] collider2Ds = this.GetComponentsInChildren<Collider2D>();

@@ -7,7 +7,7 @@ public class PlayerHealth : MonoBehaviour
     //最大血量
     public float maxHealth = 100.0f;
     //英雄血量
-    private float health = 100.0f;
+    public float health = 100.0f;
     //每次扣血量
     private float damage = 20.0f;
     //血条的渲染器
@@ -30,7 +30,9 @@ public class PlayerHealth : MonoBehaviour
         //碰到敌人
         if (collision.collider.tag == "Enemy")
         {
-            //TODO:反弹
+            //英雄碰到敌人时反弹
+
+
 
             //血>0
             if (health > 0)
@@ -74,7 +76,7 @@ public class PlayerHealth : MonoBehaviour
     }
 
     //更新血条
-    private void updateHealthBar()
+    public void updateHealthBar()
     {
         //颜色插值。100（绿） <-> 0（红）
         healthBarRender.material.color = Color.Lerp(Color.green, Color.red, 1 - health * 0.01f);

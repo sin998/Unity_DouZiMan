@@ -806,6 +806,7 @@ GameObject:
   - component: {fileID: 519867592}
   - component: {fileID: 6544996663947395942}
   - component: {fileID: 1442489470}
+  - component: {fileID: 1344679027}
   m_Layer: 0
   m_Name: Hero
   m_TagString: Player
@@ -1006,6 +1007,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  health: 100
   healthBarRender: {fileID: 4382353441596211555}
   playerAnimatior: {fileID: 518045242}
   hurtForce: 10
@@ -1035,6 +1037,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1344679027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9203189860418577763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9b6a65c0e945554d9a042bae95c135b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bombLaid: 0
+  bomb: {fileID: 100000, guid: c50132cb5c4f43e469718b7337f56a85, type: 3}
+  bombCount: 1
 --- !u!1 &9203189860818894971
 GameObject:
   m_ObjectHideFlags: 0

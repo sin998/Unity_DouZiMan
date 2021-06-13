@@ -6,6 +6,11 @@ TagManager:
   tags:
   - Enemy
   - Wall
+  - prop
+  - BombPickup
+  - PickupSpawner
+  - Ground
+  - ExplosionFX
   layers:
   - Default
   - TransparentFX
@@ -18,7 +23,7 @@ TagManager:
   - Ground
   - CinemachineCameraConfiner
   - Enemy
-  - 
+  - Props
   - 
   - 
   - 
