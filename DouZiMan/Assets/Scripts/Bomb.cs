@@ -16,7 +16,7 @@ public class Bomb : MonoBehaviour
 
     void Awake()
     {
-        explosionFX = GameObject.FindGameObjectWithTag("ExplosionFX").GetComponent<ParticleSystem>();
+        explosionFX = this.transform.GetComponentInChildren<ParticleSystem>();
         pickupSpawner = GameObject.Find("PickupSpawner").GetComponent<PickupSpawner>();
         layBombs = GameObject.FindGameObjectWithTag("Player").GetComponent<LayBombs>();
     }
@@ -40,10 +40,10 @@ public class Bomb : MonoBehaviour
     {
         layBombs.bombLaid = false; // Hero可再次释放Bomb，如何修改为可连续释放Bomb？
 
-        pickupSpawner.StartCoroutine(pickupSpawner.DeliverPickup());    // 启动产生新道具协程
+        //pickupSpawner.StartCoroutine(pickupSpawner.DeliverPickup());    // 启动产生新道具协程
 
         // 在杀伤范围内查找敌人
-        int nLayer = 1 << LayerMask.NameToLayer("enemy");
+        int nLayer = 1 << LayerMask.NameToLayer("Enemy");
         Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, bombRadius, nLayer);
 
         foreach (Collider2D en in enemies)
@@ -51,7 +51,9 @@ public class Bomb : MonoBehaviour
             Rigidbody2D enemyBody = en.GetComponent<Rigidbody2D>();
             if (enemyBody != null && enemyBody.tag == "Enemy")
             {
-                enemyBody.gameObject.GetComponent<EnemyController>().health = 0;
+                //enemyBody.gameObject.GetComponent<EnemyController>().health = 0;
+                enemyBody.gameObject.GetComponent<EnemyController>().Hurt();
+                enemyBody.gameObject.GetComponent<EnemyController>().Hurt();
 
                 Vector3 deltaPos = enemyBody.transform.position - transform.position;
 
@@ -61,6 +63,8 @@ public class Bomb : MonoBehaviour
             else if (enemyBody != null && enemyBody.tag == "Enemy2")
             {
                 enemyBody.gameObject.GetComponent<EnemyController>().health = 0;
+                enemyBody.gameObject.GetComponent<EnemyController>().Hurt();
+                enemyBody.gameObject.GetComponent<EnemyController>().Hurt();
 
                 Vector3 deltaPos = enemyBody.transform.position - transform.position;
 

@@ -15,12 +15,16 @@ public class PlayerHealth : MonoBehaviour
     //玩家动画控制器，死亡、掉落动画。
     public Animator playerAnimatior;
     //反弹的力的大小
-    public float hurtForce = 20f;				
+    public float hurtForce = 100f;
+    //声音控制
+    private AudioSource audioSource;
+    //受伤声音控制
+    public AudioClip[] hurtClips;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        audioSource = this.GetComponent<AudioSource>();
     }
 
     //英雄和其他东西碰撞时触发
@@ -30,9 +34,13 @@ public class PlayerHealth : MonoBehaviour
         //碰到敌人
         if (collision.collider.tag == "Enemy")
         {
+            //设置声音片段
+            audioSource.clip = hurtClips[Random.Range(0, hurtClips.Length - 1)];
+            //播放声音
+            audioSource.Play();
             //英雄碰到敌人时反弹
-
-
+            Vector3 hurtVector = transform.position - collision.gameObject.transform.position + Vector3.up;
+            this.GetComponent<Rigidbody2D>().AddForce(hurtVector * hurtForce);
 
             //血>0
             if (health > 0)

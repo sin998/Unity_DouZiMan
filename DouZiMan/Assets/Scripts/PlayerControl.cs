@@ -27,12 +27,17 @@ public class PlayerControl : MonoBehaviour
     private bool canJump = false;
     //Hero的动画控制器
     public Animator playeraimator;
+    //跳跃声音控制
+    public AudioClip[] jumpClips;
+    //声音控制
+    private AudioSource audioSource;
 
     // Start is called before the first frame update
     void Start()
     {
         heroRD2D = this.GetComponent<Rigidbody2D>();
         GroundCheckTf = heroTransform.Find("GroundCheck");
+        audioSource = this.GetComponent<AudioSource>();
     }
     void Awake()
     {
@@ -97,6 +102,10 @@ public class PlayerControl : MonoBehaviour
     {
         if (canJump)
         {
+            //设置声音片段
+            audioSource.clip = jumpClips[Random.Range(0, jumpClips.Length - 1)];
+            //播放声音
+            audioSource.Play();
             //Debug.Log("可以跳跃！");
             heroRD2D.AddForce(new Vector2(0, 1) * JumpForce);
             canJump = false;

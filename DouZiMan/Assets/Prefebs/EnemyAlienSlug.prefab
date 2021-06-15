@@ -72,9 +72,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 15
+  health: 2
   damageSprite: {fileID: 0}
   deadSprite: {fileID: 21300000, guid: bd1989b4e42a0454097f657dfb368bd8, type: 3}
   PointsUI100: {fileID: 100006, guid: baed13ade6f2ca746b5ad6c7101c8197, type: 3}
+  deathClips:
+  - {fileID: 8300000, guid: 039514349165244c6a43be5c3070d14b, type: 3}
+  - {fileID: 8300000, guid: 85020549641fa452d9136ac2fc852efd, type: 3}
+  - {fileID: 8300000, guid: 2e20b5071623f44cf9c72acf016de4b6, type: 3}
 --- !u!61 &3775287012102287021
 BoxCollider2D:
   m_ObjectHideFlags: 0

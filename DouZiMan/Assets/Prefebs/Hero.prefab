@@ -876,9 +876,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveForce: 15
   isFaceRight: 1
-  maxSpeed: 30
+  maxSpeed: 20
   JumpForce: 570
   playeraimator: {fileID: 518045242}
+  jumpClips:
+  - {fileID: 8300000, guid: 50a8d8a939a0f4e77a0dac6ecd2e582b, type: 3}
+  - {fileID: 8300000, guid: fc55d077383484ac0ad66aa17fcd746f, type: 3}
+  - {fileID: 8300000, guid: dafa1cc4eb8714341a7c595abfba35d8, type: 3}
 --- !u!95 &518045242
 Animator:
   serializedVersion: 3
@@ -907,7 +911,8 @@ AudioSource:
   m_GameObject: {fileID: 9203189860418577763}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -7554302560309059964, guid: 8c0380f5fd459a9489ee19d044f34398,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -1010,7 +1015,12 @@ MonoBehaviour:
   health: 100
   healthBarRender: {fileID: 4382353441596211555}
   playerAnimatior: {fileID: 518045242}
-  hurtForce: 10
+  hurtForce: 50
+  hurtClips:
+  - {fileID: 8300000, guid: 16883b69910904c908f8738ee6d16a7f, type: 3}
+  - {fileID: 8300000, guid: 4825e9268b7c84159b1f2b9cb54850b1, type: 3}
+  - {fileID: 8300000, guid: c6cea8437a02b40b78dfaf913b99be0d, type: 3}
+  - {fileID: 8300000, guid: 4baef03e1cc8f4ab69708f3aedbce21c, type: 3}
 --- !u!61 &1442489470
 BoxCollider2D:
   m_ObjectHideFlags: 0

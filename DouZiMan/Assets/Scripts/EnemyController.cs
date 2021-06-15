@@ -26,6 +26,8 @@ public class EnemyController : MonoBehaviour
     //private bool isDead;
     //100Points动画
     public GameObject PointsUI100;
+    //受伤声音控制
+    public AudioClip[] deathClips;
 
     // Start is called before the first frame update
     void Start()
@@ -69,9 +71,11 @@ public class EnemyController : MonoBehaviour
     }    
     
     
-    private void Dead()
+    public void Dead()
     {
-       // isDead = true;
+        GameObject.FindGameObjectWithTag("PickupSpawner").GetComponent<AudioSource>().clip = deathClips[Random.Range(0, deathClips.Length)];
+        GameObject.FindGameObjectWithTag("PickupSpawner").GetComponent<AudioSource>().Play();
+        // isDead = true;
         bodySP.sprite = deadSprite;
         //子物体的碰撞全部设置为IsTrigger，即掉到河里
         Collider2D[] collider2Ds = this.GetComponentsInChildren<Collider2D>();
@@ -84,6 +88,7 @@ public class EnemyController : MonoBehaviour
         //随机加上一个旋转扭矩
         Vector3 scorePos = transform.position;
         scorePos.y += 1.5f;
+
         Instantiate(PointsUI100, scorePos, Quaternion.identity);
     }
 

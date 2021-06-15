@@ -3,21 +3,18 @@ using System.Collections;
 
 public class HealthPickup : MonoBehaviour
 {
-    public float healthBonus;               // How much health the crate gives the player.
-    public AudioClip boom;
+    public float healthBonus;               //加血量
+    public AudioClip health;
 
-    private PickupSpawner pickupSpawner;    // Reference to the pickup spawner.
-    private Animator anim;                  // Reference to the animator component.
-    private bool landed = false;                    // Whether or not the crate has landed.
-
+    private PickupSpawner pickupSpawner;    //道具生成控制器
+    private Animator anim;                  //动画
+    private bool landed = false;            //是否落地
 
     void Awake()
     {
         anim = transform.root.GetComponent<Animator>();
         pickupSpawner = GameObject.Find("PickupSpawner").GetComponent<PickupSpawner>();
-
     }
-
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -25,10 +22,10 @@ public class HealthPickup : MonoBehaviour
         // 半空中被接着
         if (other.tag == "Player")
         {
+            //Debug.Log("是hero！");
             //other.GetComponent<PlayerHealth>();
             PlayerHealth playerHealth = other.gameObject.transform.root.GetComponent<PlayerHealth>();
-
-            GameObject.FindGameObjectWithTag("PickupSpawner").GetComponent<AudioSource>().clip = boom;
+            GameObject.FindGameObjectWithTag("PickupSpawner").GetComponent<AudioSource>().clip = health;
             GameObject.FindGameObjectWithTag("PickupSpawner").GetComponent<AudioSource>().Play();
 
             // 加血
@@ -36,13 +33,16 @@ public class HealthPickup : MonoBehaviour
             if (playerHealth.health > 100)
                 playerHealth.health = 100;
 
+            //Debug.Log("当前hero血量是：" + playerHealth.health);
+
             // 更新血条.
             playerHealth.updateHealthBar();
 
-            // 销毁医疗包
-            Destroy(transform.root.gameObject);
             // 开启新协程
             pickupSpawner.StartCoroutine(pickupSpawner.DeliverPickup());
+
+            // 销毁医疗包
+            Destroy(transform.root.gameObject);
 
             
         }

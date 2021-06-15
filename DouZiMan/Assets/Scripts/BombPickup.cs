@@ -6,7 +6,9 @@ public class BombPickup : MonoBehaviour
     public AudioClip boom;
     private PickupSpawner pickupSpawner;
     private Animator anim;              
-    private bool landed = false;        
+    private bool landed = false;
+
+    public GameObject bombPrefeb;
     
     void Awake()
     {
@@ -14,7 +16,6 @@ public class BombPickup : MonoBehaviour
         pickupSpawner = GameObject.Find("PickupSpawner").GetComponent<PickupSpawner>();
         
     }
-
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -24,12 +25,15 @@ public class BombPickup : MonoBehaviour
         {
             GameObject.FindGameObjectWithTag("PickupSpawner").GetComponent<AudioSource>().clip = boom;
             GameObject.FindGameObjectWithTag("PickupSpawner").GetComponent<AudioSource>().Play();
-            // 销毁炮弹
-            Destroy(transform.root.gameObject);
+
             pickupSpawner.StartCoroutine(pickupSpawner.DeliverPickup());
             //增加炮弹数:这里碰撞的其实是body
             //Debug.Log(other.gameObject.name);
-            other.gameObject.transform.root.GetComponent<LayBombs>().bombCount++;
+            //other.gameObject.transform.root.GetComponent<LayBombs>().bombCount++;
+
+            Instantiate(bombPrefeb, transform.position, Quaternion.identity);
+            // 销毁炮弹
+            Destroy(transform.root.gameObject);
         }
         // 掉地上
         else if (other.tag == "Ground" && !landed)
