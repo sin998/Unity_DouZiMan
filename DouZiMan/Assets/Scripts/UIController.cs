@@ -12,7 +12,12 @@ public class UIController : MonoBehaviour
     public Slider masterVolumeSlider;
     //是否暂停游戏
     private bool isPaused;
+    //混音器
     public AudioMixer masterMixer;
+    //得分UI
+    public Text scoreText;
+    //当前分数
+    private static float score = 0.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -37,6 +42,17 @@ public class UIController : MonoBehaviour
         {
             Time.timeScale = 1;
         }
+    }
+
+    public void addScore()
+    {
+        score += 100.0f;
+        updateScore();
+    }
+
+    private void updateScore()
+    {
+        scoreText.text = "得分：" + score;
     }
 
     // Update is called once per frame

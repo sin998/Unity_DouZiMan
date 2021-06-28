@@ -54,6 +54,7 @@ public class Bomb : MonoBehaviour
                 //enemyBody.gameObject.GetComponent<EnemyController>().health = 0;
                 enemyBody.gameObject.GetComponent<EnemyController>().Hurt();
                 enemyBody.gameObject.GetComponent<EnemyController>().Hurt();
+                GameObject.Find("Canvas").GetComponent<UIController>().addScore();
 
                 Vector3 deltaPos = enemyBody.transform.position - transform.position;
 
@@ -65,6 +66,7 @@ public class Bomb : MonoBehaviour
                 enemyBody.gameObject.GetComponent<EnemyController>().health = 0;
                 enemyBody.gameObject.GetComponent<EnemyController>().Hurt();
                 enemyBody.gameObject.GetComponent<EnemyController>().Hurt();
+                GameObject.Find("Canvas").GetComponent<UIController>().addScore();
 
                 Vector3 deltaPos = enemyBody.transform.position - transform.position;
 

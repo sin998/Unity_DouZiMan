@@ -28,6 +28,8 @@ public class EnemyController : MonoBehaviour
     public GameObject PointsUI100;
     //受伤声音控制
     public AudioClip[] deathClips;
+    //被打了几枪
+    private int attackCount = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -50,6 +52,15 @@ public class EnemyController : MonoBehaviour
                 flip();
                 break;
             }
+        }
+    }
+
+    public void addAttackCount()
+    {
+        attackCount++;
+        if(attackCount == 2)
+        {
+            GameObject.Find("Canvas").GetComponent<UIController>().addScore();
         }
     }
 

@@ -39,7 +39,7 @@ public class HealthPickup : MonoBehaviour
             playerHealth.updateHealthBar();
 
             // 开启新协程
-            pickupSpawner.StartCoroutine(pickupSpawner.DeliverPickup());
+            pickupSpawner.StartCoroutine(pickupSpawner. DeliverPickup());
 
             // 销毁医疗包
             Destroy(transform.root.gameObject);

@@ -26,6 +26,7 @@ public class RocketController : MonoBehaviour
         Instantiate(ExplosionAnimation, transform.position, Quaternion.Euler(0, 0, Random.Range(0, 360)));
         if (collision.collider.tag == "Enemy")
         {
+            collision.gameObject.GetComponent<EnemyController>().addAttackCount();
             collision.gameObject.GetComponent<EnemyController>().Hurt();
         }
         Destroy(gameObject);
