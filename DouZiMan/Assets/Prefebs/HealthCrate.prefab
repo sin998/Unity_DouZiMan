@@ -15,8 +15,8 @@ GameObject:
   - component: {fileID: 4773163570890790689}
   - component: {fileID: 1810052602156226299}
   m_Layer: 11
-  m_Name: healthCrate
-  m_TagString: Untagged
+  m_Name: HealthCrate
+  m_TagString: prop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -140,7 +140,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBonus: 30
-  boom: {fileID: 8300000, guid: fdcf63a3454d74ea5bdd46db131f3078, type: 3}
+  health: {fileID: 0}
 --- !u!82 &1810052602156226299
 AudioSource:
   m_ObjectHideFlags: 0

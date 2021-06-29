@@ -101,6 +101,7 @@ public class EnemyController : MonoBehaviour
         scorePos.y += 1.5f;
 
         Instantiate(PointsUI100, scorePos, Quaternion.identity);
+        Destroy(gameObject);
     }
 
     //转身
