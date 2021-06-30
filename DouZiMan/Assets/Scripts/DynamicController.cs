@@ -7,38 +7,56 @@ public class DynamicController : MonoBehaviour
     //现在的朝向
     public bool isFaceRight = true;
     //每几秒往前走
-    private float moveTime;
+    private float moveIntervalTime;
     //几秒以后调换朝向
     private float flipTime;
+    //施加的力：移动
+    public float moveForce = 100;
+    //刚体
+    private Rigidbody2D rigidbody2D;
+    //是否在运动
+    private bool isMove = false;
+    //上一次施加的力
+    private Vector2 lastMoveForce;
+    //运动总时间
+    public float moveTotalTime;
 
     // Start is called before the first frame update
     void Start()
     {
-        moveTime = 0.2f; 
-        flipTime = moveTime * 50;
+        moveIntervalTime = 0.2f;
+        flipTime = moveIntervalTime * moveTotalTime;
         StartCoroutine(move());
+        rigidbody2D = this.GetComponent<Rigidbody2D>();
     }
 
     private IEnumerator move()
     {
         // 第一次时间间隔
-        yield return new WaitForSeconds(moveTime);
+        yield return new WaitForSeconds(moveIntervalTime);
 
-        if (isFaceRight)
+        if (isMove == false)
         {
-            this.transform.position = new Vector3(transform.position.x - 1, transform.position.y, transform.position.z);
-        }
+            if (isFaceRight)
+            {
+                lastMoveForce = Vector2.right * moveForce * (-1);
+                rigidbody2D.AddForce(lastMoveForce);
+            }
         else
-        {
-            this.transform.position = new Vector3(transform.position.x + 1, transform.position.y, transform.position.z);
+            {
+                lastMoveForce = Vector2.right * moveForce * (1);
+                rigidbody2D.AddForce(lastMoveForce);
+            }
+            isMove = true;
         }
 
-        flipTime -= moveTime;
-        //Debug.Log("flipTime:" + flipTime);
-        if (flipTime <= 0)
+        flipTime -= moveIntervalTime;
+        if (flipTime <= 0.0f)
         {
             flip();
-            flipTime = moveTime * 50;
+            flipTime = moveIntervalTime * moveTotalTime;
+            rigidbody2D.AddForce( (-1) * lastMoveForce);
+            isMove = false;
         }
 
         StartCoroutine(move());

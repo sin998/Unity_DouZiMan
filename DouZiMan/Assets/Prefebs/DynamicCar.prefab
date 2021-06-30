@@ -91,6 +91,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7511616629248568817}
   - component: {fileID: 8304476397199227884}
+  - component: {fileID: 4244833765570750117}
   m_Layer: 0
   m_Name: DynamicCar
   m_TagString: Untagged
@@ -127,6 +128,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isFaceRight: 1
+  moveForce: 100
+  moveTotalTime: 150
+--- !u!50 &4244833765570750117
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7511616629248568816}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &7511616630072711884
 GameObject:
   m_ObjectHideFlags: 0
