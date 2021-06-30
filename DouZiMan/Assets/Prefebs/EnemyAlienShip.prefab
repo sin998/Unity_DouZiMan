@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4362032454422888748}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: FrontCheck
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 4362032454446279749}
   - component: {fileID: 4362032454446279748}
   - component: {fileID: 1956088140113490034}
-  m_Layer: 10
+  m_Layer: 12
   m_Name: EnemyAlienShip
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -145,7 +145,7 @@ GameObject:
   - component: {fileID: 4362032456433509411}
   - component: {fileID: 4362032456433509597}
   - component: {fileID: 4362032456433509596}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: body
   m_TagString: Enemy
   m_Icon: {fileID: 0}

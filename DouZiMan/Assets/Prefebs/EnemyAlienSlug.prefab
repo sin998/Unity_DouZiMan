@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3775287012102286995}
   - component: {fileID: 3775287012102287020}
   - component: {fileID: 3775287012102287021}
-  m_Layer: 10
+  m_Layer: 12
   m_Name: EnemyAlienSlug
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -116,7 +116,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3775287012456141100}
   - component: {fileID: 3775287012456141103}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: eyelid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -196,7 +196,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3775287012952341990}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: FrontCheck
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
@@ -227,7 +227,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3775287013307790936}
   - component: {fileID: 3775287013307790939}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: eye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -309,7 +309,7 @@ GameObject:
   - component: {fileID: 3775287013992239920}
   - component: {fileID: 3775287013992239922}
   - component: {fileID: 3775287013992239923}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: body
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -406,7 +406,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3775287014046606131}
   - component: {fileID: 3775287014046606130}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: tail
   m_TagString: Untagged
   m_Icon: {fileID: 0}

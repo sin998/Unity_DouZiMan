@@ -139,8 +139,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7347678ffe346e45bd9fe5f547b6401, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthBonus: 30
-  health: {fileID: 0}
+  healthBonus: 60
+  health: {fileID: 8300000, guid: 2d487c0108565443ba2dea29b521e120, type: 3}
 --- !u!82 &1810052602156226299
 AudioSource:
   m_ObjectHideFlags: 0

@@ -33,7 +33,7 @@ public class HealthPickup : MonoBehaviour
             if (playerHealth.health > 100)
                 playerHealth.health = 100;
 
-            //Debug.Log("当前hero血量是：" + playerHealth.health);
+            Debug.Log("当前hero血量是：" + playerHealth.health);
 
             // 更新血条.
             playerHealth.updateHealthBar();

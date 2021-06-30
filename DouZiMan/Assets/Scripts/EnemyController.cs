@@ -47,7 +47,8 @@ public class EnemyController : MonoBehaviour
         Collider2D[] collider2Ds = Physics2D.OverlapPointAll(frontCheckTF.position);
         foreach(Collider2D c in collider2Ds)
         {
-            if(c.tag == "Wall" || c.tag =="Enemy")
+            //|| c.tag =="Enemy"
+            if (c.tag == "Wall" )
             {
                 flip();
                 break;
@@ -101,7 +102,7 @@ public class EnemyController : MonoBehaviour
         scorePos.y += 1.5f;
 
         Instantiate(PointsUI100, scorePos, Quaternion.identity);
-        Destroy(gameObject);
+        Destroy(gameObject,2.0f);
     }
 
     //转身
